@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+    public class RunLengthEncoding
+    {
+        public static string CharacterCounter(string str)
+        {
+            int strLength = str.Length;
+            string newStr = "";
+            for(int i = 0; i < strLength; i++)
+            {
+                int counter = 1;
+                while(i < strLength - 1 && str[i] == str[i + 1])
+                {
+                    counter++;
+                    i++;
+                }
+                newStr += counter.ToString() + str[i];
+            }
+            
+            return newStr;
+        }
+        
+        public static void Main(string[] args)
+        {
+            //Your code goes here
+            string input = Console.ReadLine();
+            string newStr = CharacterCounter(input);
+            Console.WriteLine(newStr);
+        }
+    }
